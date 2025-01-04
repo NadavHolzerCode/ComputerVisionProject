@@ -6,6 +6,8 @@ Some files are not uploaded due to the sensitivity of medical information.
 
 ---
 
+![Video Example](https://github.com/NadavHolzerCode/FinalProject-ML/blob/main/GitGIF.gif)
+
 ## Getting Started
 
 ### Prerequisites
@@ -140,5 +142,4 @@ except Exception as e:
 
 
 
-![Video Example](https://github.com/NadavHolzerCode/FinalProject-ML/blob/main/GitGIF.gif)
 
