@@ -133,5 +133,4 @@ except Exception as e:
 
 - Ensure all file paths are correctly selected before starting the analysis.
 - Dynamic heatmaps provide a frame-by-frame visualization, making them ideal for detailed analysis.
-- For any issues or exceptions, check the error logs to troubleshoot efficiently.
 
