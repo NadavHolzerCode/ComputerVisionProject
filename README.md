@@ -1,8 +1,9 @@
-# ComputerVisionProject
-In this project, we utilized DeepMind's TAPIR model to analyze videos of Parkinson's patients walking through a corridor while wearing eye-tracking glasses. Our goal was to map the patients' gaze positions onto a single heatmap.
+# FinalProject
+In this project, we utilized DeepMind's TAPIR model to analyze videos of Parkinson's patients walking through a corridor while wearing eye-tracking glasses. Our goal was to map the patients' gaze positions onto a single heatmap as well as dynamic one.
 
 Using TAPIR, we tracked any point on the screen with high accuracy. Leveraging computer vision tools, we processed the gaze data and successfully generated a comprehensive heatmap, providing valuable insights into the patients' visual attention patterns.
 
+Process
 Before starting the analysis make sure to install all libraries using the requirements file.
 The first step in the code is to provide the patient ID and select three file paths:
 1.	Select the patient ID from a dropdown list.
@@ -38,7 +39,7 @@ def save_combined_video(video_path2, start_time_sec, output_filename, fps=5):
 
 
 Next, upload the segments file (via the start_process function), which contains data for all patients (PD and OA) and their walking segments. Each segment represents straight walking in a corridor, with no turns.
-# Get segments times split
+## Get segments times split
 def start_process():
     sheet = selected_patient                                                # From segments CSV file, select the patient's sheet
     segments = pd.read_excel(segments_file_path, sheet_name=sheet)  
@@ -48,7 +49,7 @@ segments, sheet = start_process()                                           # Ge
 
 At this point, you can extract heatmaps. Several options are available: you can either generate separate heatmaps for different halves of a segment or any custom time range within the video. Another option is to process the second half of the segment and append it to the first half. This involves creating a heatmap for the first frame of the second half and appending it as gaze points to the last frame of the first half, then analyzing the segment as a whole. This method often produces better results than analyzing the entire segment at once.
 Example:
-# Process second half of video
+## Process second half of video
 segment_num = 2                                                             # Choose the segment to analyze
 try:
     group = sheet[:2]; id = sheet[:10];  status = sheet[11:]
@@ -60,7 +61,7 @@ try:
 
 except Exception as e:
     print(e)
-# Load the second half processed data after it was analyzed in the last cell
+## Load the second half processed data after it was analyzed in the last cell
 if status:
     patient_info = f'{group}/{id}/{status}'
 else:
@@ -70,7 +71,7 @@ directory = os.path.join("Heatmap", patient_info, f"seg{start_analyze}_{end_anal
 query_SecondHalf = pd.read_csv(directory)
 query_SecondHalf = np.array(query_SecondHalf)
 
-# Attach the second half to the first half and process as whole
+## Attach the second half to the first half and process as whole
 try:
     group = sheet[:2]; id = sheet[:10];  status = sheet[11:]
     times = segments[segments['SEGMENT'] == segment_num]['time_sec']
@@ -83,7 +84,7 @@ except Exception as e:
 
 If you want to create a dynamic heatmap, which displays the heatmap building alongside the world view video, take the processed video (from combining the two halves) and pass it into the FindHeatMap function with dynamic=True. This generates a heatmap for every frame of the processed video. Afterward, merge the new heatmaps with the original world view video.
 Example:
-# Dynamic
+## Dynamic
 segment_num = 2                                                             # Choose the segment to analyze
 try:
     group = sheet[:2]; id = sheet[:10];  status = sheet[11:]
@@ -97,7 +98,7 @@ except Exception as e:
 
 save_video(heatmaps, 'output_video.mp4', 5)
 
-# Output file path
+## Output file path
 output_filename = filedialog.askdirectory(title="Where to drop the dynamic heat map?",
 ) + f'/DynamicHeatMap_{id}_{status}_{start_analyze}-{end_analyze}.mp4'
 
