@@ -140,5 +140,5 @@ except Exception as e:
 
 
 
-![Video Example](https://github.com/NadavHolzerCode/FinalProject-ML/blob/main/Git%20example.mp4)
+![Video Example](https://github.com/NadavHolzerCode/FinalProject-ML/blob/main/GitGIF.gif)
 
