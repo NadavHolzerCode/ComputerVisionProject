@@ -11,6 +11,8 @@ Some files are not uploaded due to the sensitivity of medical information.
 ### Prerequisites
 
 Before starting the analysis, make sure to install all required libraries using the `requirements.txt` file.
+Additionally, ensure that you clone and install the TAPIR repository from DeepMind. Follow the setup instructions in their repository to integrate it into this project.
+https://github.com/google-deepmind/tapnet
 
 ### Initial Setup
 
