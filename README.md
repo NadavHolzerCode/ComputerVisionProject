@@ -39,7 +39,8 @@ def save_combined_video(video_path2, start_time_sec, output_filename, fps=5):
 
 
 Next, upload the segments file (via the start_process function), which contains data for all patients (PD and OA) and their walking segments. Each segment represents straight walking in a corridor, with no turns.
-Get segments times split
+
+---------------Get segments times split
 def start_process():
     sheet = selected_patient                                                # From segments CSV file, select the patient's sheet
     segments = pd.read_excel(segments_file_path, sheet_name=sheet)  
