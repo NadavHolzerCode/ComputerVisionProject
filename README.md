@@ -2,6 +2,7 @@
 
 This project utilizes DeepMind's TAPIR model to analyze videos of Parkinson's patients walking through a corridor while wearing eye-tracking glasses. The primary goal is to map the patients' gaze positions into a single heatmap. Using TAPIR, we tracked any point on the screen, and with the help of computer vision tools, we generated both static and dynamic heatmaps to visualize the gaze patterns effectively.
 
+Some files are not uploaded due to the sensitivity of medical information.
 ---
 
 ## Getting Started
