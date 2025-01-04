@@ -138,3 +138,7 @@ except Exception as e:
 - Ensure all file paths are correctly selected before starting the analysis.
 - Dynamic heatmaps provide a frame-by-frame visualization, making them ideal for detailed analysis.
 
+
+
+![Video Example](https://github.com/NadavHolzerCode/FinalProject-ML/blob/main/Git%20example.mp4)
+
